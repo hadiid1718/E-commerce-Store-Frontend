@@ -1,0 +1,501 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+.logo-container{
+ display: flex;
+ align-items: center;
+ justify-content: space-between;
+ background-color: black;
+ padding: 1rem 2rem;
+ box-shadow: 0 0.8rem 0.8rem rgba(0, 0, 0, 0.5);
+}
+
+.logo{
+  margin-left: 2rem;
+ color: #3498db;
+ display: flex;
+ align-items: center;
+ gap: 1rem;
+
+}
+.logo img{
+  width: 34px;
+  border-radius: 50%;
+  object-fit: contain;
+  background-color: transparent;
+}
+.cart-count {
+  /* position: fixed; */
+  border: 2px solid #e74c3c;
+  padding: 5px 10px;
+  border-radius: 3px;
+  color: #eee;
+  background: #ff2c2c;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: #f01e2c;
+  }
+}
+
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding: 15px;
+  background-color: #3498db;
+  border-radius: 8px;
+}
+
+.filters select {
+  padding: 8px;
+  margin-right: 10px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.search-bar {
+  padding: 8px;
+  width: 200px;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.product-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.product-title {
+  font-size: 1.1em;
+  margin-bottom: 8px;
+}
+
+.product-price {
+  color: #2ecc71;
+  font-weight: bold;
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.add-to-cart {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-to-cart:hover {
+  background-color: #2980b9;
+}
+
+
+
+/* Cart Modal Styles */
+.cart-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.cart-content {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.cart-item-details {
+  flex-grow: 1;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.quantity-btn {
+  background-color: #ddd;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.remove-btn {
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.cart-summary {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.place-order-btn {
+  background-color: #2ecc71;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.close-cart {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+  /* Delivery Form Styles */
+  .delivery-form {
+    padding: 20px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+}
+
+.confirm-btn {
+    background-color: #2ecc71;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    flex: 1;
+}
+.payment-methods {
+  margin: 20px 0;
+}
+
+.payment-method {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.payment-method:hover {
+  border-color: #3498db;
+}
+
+.payment-method.selected {
+  border-color: #2ecc71;
+  background-color: #f7fdf9;
+}
+
+.payment-method-header {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.payment-method input[type="radio"] {
+  margin: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.payment-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+}
+
+.payment-details {
+  display: none;
+  padding: 15px;
+  border-top: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.payment-details.active {
+  display: block;
+}
+
+.payment-details input {
+  width: 100%;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.payment-total {
+  background-color: #f8f9fa;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.payment-total h3 {
+  margin-bottom: 10px;
+}
+
+.secure-payment-note {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #666;
+  margin: 15px 0;
+  font-size: 0.9em;
+}
+
+.back-btn {
+  background-color: #95a5a6;
+}
+
+/* Order Status Styles */
+.order-status {
+    text-align: center;
+    padding: 20px;
+}
+
+.order-id {
+    font-size: 1.2em;
+    color: #3498db;
+    margin-bottom: 20px;
+}
+
+.status-steps {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    position: relative;
+}
+
+.status-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+}
+
+.step-dot {
+    width: 20px;
+    height: 20px;
+    background-color: #ddd;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.step-dot.active {
+    background-color: #2ecc71;
+}
+
+.step-label {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.step-label.active {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.progress-bar {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    height: 2px;
+    background-color: #ddd;
+    width: 100%;
+    z-index: 1;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: #2ecc71;
+    width: 0;
+    transition: width 4s linear;
+}
+  /* Additional Order Status Styles */
+  .order-details {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+}
+
+.order-products {
+    margin: 15px 0;
+}
+
+.order-product-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.order-product-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 15px;
+    border-radius: 4px;
+}
+
+.order-product-info {
+    flex-grow: 1;
+}
+
+.order-total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #eee;
+    font-weight: bold;
+}
+
+.countdown {
+    font-size: 1.2em;
+    margin: 15px 0;
+    padding: 10px;
+    background-color: #3498db;
+    color: white;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.delivery-info {
+    margin: 15px 0;
+    padding: 15px;
+    background-color: #e8f6f3;
+    border-radius: 4px;
+}
+
+.delivery-address {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+.status-message {
+    margin: 10px 0;
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
